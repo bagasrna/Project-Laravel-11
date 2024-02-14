@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 use App\Domain\Admin\Admin;
+use App\Enums\CustomerRole;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
-use Spatie\Permission\Contracts\Role;
 
 class AdminSeeder extends Seeder
 {
@@ -19,13 +19,13 @@ class AdminSeeder extends Seeder
     {
         Schema::disableForeignKeyConstraints();
         Admin::truncate();
-        
+
         $admin = Admin::create([
             'name' => 'Muhammad Ibnu',
             'email' => 'ibnu@gmail.com',
             'password' => Hash::make('password')
         ]);
-        $admin->assignRole('Admin');
+        $admin->assignRole(CustomerRole::ADMIN);
 
         Schema::enableForeignKeyConstraints();
     }

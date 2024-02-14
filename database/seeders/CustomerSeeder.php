@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Domain\Customer\Customer;
+use App\Enums\CustomerRole;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
@@ -24,7 +25,7 @@ class CustomerSeeder extends Seeder
             'email' => 'bagas@gmail.com',
             'password' => Hash::make('password')
         ]);
-        $admin->assignRole('Customer');
+        $admin->assignRole(CustomerRole::CUSTOMER);
 
         Schema::enableForeignKeyConstraints();
     }

@@ -2,12 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Enums\CustomerRole;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
 class PermissionCustomerSeeder extends Seeder
 {
-    const NAME = 'Customer';
+    const NAME = CustomerRole::CUSTOMER;
     const GUARD = 'api-customer';
     protected $actions  = [
         'view',
