@@ -2,9 +2,9 @@ name: CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -19,6 +19,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            sudo su
             cd /var/www/dev
             git pull origin main
             composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
